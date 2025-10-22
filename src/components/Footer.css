@@ -1,0 +1,36 @@
+.footer-container {
+  background:rgb(1, 1, 11);
+  color: #ddd;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+.footer-socials {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  color: #f2eef0;
+  font-size: 1rem;
+  margin: 0 14px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #8a2be2;
+  transform: scale(1.2);
+}
+
+.footer-text p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.crafted {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
