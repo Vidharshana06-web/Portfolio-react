@@ -602,3 +602,81 @@ html, body {
     height: 120px !important;
   }
 }
+
+
+
+
+
+
+/* ---------- RESPONSIVE NAVBAR ---------- */
+
+/* Hide hamburger by default */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Hide mobile resume button by default */
+.mobile-btn {
+  display: none;
+}
+
+/* Tablet & Mobile View */
+@media (max-width: 900px) {
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide the desktop resume button */
+  .nav-right {
+    display: none;
+  }
+
+  .nav-center {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 15, 36, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 0;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 998;
+  }
+
+  /* When menu active (clicked) */
+  .nav-center.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  /* Show Resume button inside mobile menu */
+  .mobile-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #8a2be2, #ff6fb5, #1e90ff);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #00c6ff, #0077ff);
+  }
+}
