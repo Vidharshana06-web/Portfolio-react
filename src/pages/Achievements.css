@@ -1,43 +1,37 @@
-:root{
-  --bg:#000;
-  --card-bg: rgba(10,15,36,0.85);
-  --muted:#0f1724;
+:root {
+  --bg: #000;
+  --card-bg: rgba(10, 15, 36, 0.85);
+  --muted: #0f1724;
   --silver: #c0c0c0;
   --blue: #00b4d8;
   --purple: #8a5cff;
 }
 
-.achievements-section{
+/* ---------- Base Section ---------- */
+.achievements-section {
   min-height: 100vh;
-  padding: 160px 5% 100px; /* leave space for fixed navbar */
+  padding: 160px 5% 100px; /* space for navbar */
   background: var(--bg);
   color: #e6eef6;
   position: relative;
 }
 
-/* heading */
+/* ---------- Heading ---------- */
 .achieve-heading {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 40px;
   font-weight: 600;
   letter-spacing: 1px;
-
-  /* Gradient Text */
   background: linear-gradient(45deg, #8a2be2, #d49fb9, #1e90ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Soft Glow Effect */
   text-shadow: 0 0 12px rgba(138, 43, 226, 0.3);
-
-  /* Optional Animation (for consistency) */
   animation: fadeDown 1.2s ease-in-out;
 }
 
-
-/* vertical timeline line */
-.timeline{
+/* ---------- Timeline Layout ---------- */
+.timeline {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -45,8 +39,8 @@
   padding: 20px 0;
 }
 
-/* center vertical line */
-.timeline::before{
+/* Vertical Line */
+.timeline::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -55,12 +49,12 @@
   bottom: 0;
   width: 4px;
   background: linear-gradient(180deg, var(--blue), var(--purple));
-  box-shadow: 0 0 20px rgba(138,92,255,0.1);
+  box-shadow: 0 0 20px rgba(138, 92, 255, 0.1);
   border-radius: 4px;
 }
 
-/* item layout */
-.timeline-item{
+/* ---------- Timeline Items ---------- */
+.timeline-item {
   display: flex;
   width: 100%;
   margin: 28px 0;
@@ -68,63 +62,90 @@
   position: relative;
 }
 
-/* spoke (connector circle on center line) */
-.spoke{
+/* Circle Connector */
+.spoke {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(10,15,36,0.6);
+  background: rgba(10, 15, 36, 0.6);
   display: flex;
-  align-items:center;
-  justify-content:center;
-  border: 2px solid rgba(255,255,255,0.04);
-  box-shadow: 0 0 0 rgba(0,0,0,0);
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.04);
   z-index: 4;
   transition: transform 0.3s ease;
 }
 
-/* highlighted spoke */
-.spoke-highlight{
-  background: radial-gradient(circle at 30% 20%, rgba(138,92,255,0.18), rgba(0,0,0,0.2));
-  box-shadow: 0 0 30px rgba(138,92,255,0.18);
-  border: 2px solid rgba(138,92,255,0.5);
+/* Highlighted Circle */
+.spoke-highlight {
+  background: radial-gradient(circle at 30% 20%, rgba(138, 92, 255, 0.18), rgba(0, 0, 0, 0.2));
+  box-shadow: 0 0 30px rgba(138, 92, 255, 0.18);
+  border: 2px solid rgba(138, 92, 255, 0.5);
 }
 
-/* icon inside spoke */
-.spoke-icon{
+.spoke-icon {
   color: var(--blue);
   font-size: 1.4rem;
 }
 
-/* left/right card position */
-.timeline-item.left .card { margin-right: calc(50% + 40px); text-align:left; }
-.timeline-item.right { justify-content:flex-end; }
-.timeline-item.right .card { margin-left: calc(50% + 40px); text-align:left; }
-
-/* card styling */
-
-/* highlighted card */
-.card-highlight{
-  border: 1px solid var(--silver); /* Silver border */
-  box-shadow: 0 12px 40px rgba(192,192,192,0.25); /* subtle silver glow */
-  background: linear-gradient(180deg, rgba(18,12,30,0.85), rgba(10,10,20,0.85));
+/* ---------- Card Positioning ---------- */
+.timeline-item.left .card {
+  margin-right: calc(50% + 40px);
+  text-align: left;
 }
 
-/* muted card */
-.card-muted{
-  border: 1px solid rgba(255,255,255,0.04);
-  background: linear-gradient(180deg, rgba(7,12,20,0.55), rgba(10,14,20,0.55));
+.timeline-item.right {
+  justify-content: flex-end;
 }
 
-/* header */
-.card-header{
-  display:flex;
-  gap:12px;
-  align-items:baseline;
-  justify-content:space-between;
+.timeline-item.right .card {
+  margin-left: calc(50% + 40px);
+  text-align: left;
+}
+
+/* ---------- Card Styling ---------- */
+.card {
+  width: 46%;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 20px 22px;
+  border: 1px solid rgba(192, 192, 192, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cardIn 0.6s ease forwards;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 180, 216, 0.8);
+  z-index: 5;
+}
+
+/* ---------- Card Variants ---------- */
+.card-highlight {
+  border: 1px solid var(--silver);
+  box-shadow: 0 12px 40px rgba(192, 192, 192, 0.25);
+  background: linear-gradient(180deg, rgba(18, 12, 30, 0.85), rgba(10, 10, 20, 0.85));
+}
+
+.card-muted {
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(7, 12, 20, 0.55), rgba(10, 14, 20, 0.55));
+}
+
+/* ---------- Card Header ---------- */
+.card-header {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .card-title {
@@ -133,180 +154,28 @@
   background: linear-gradient(30deg, var(--blue), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--silver); /* fallback */
 }
 
-.card-role{
+.card-role {
   font-size: 0.85rem;
-  color: rgba(200,200,220,0.7);
-  font-weight:500;
+  color: rgba(200, 200, 220, 0.7);
+  font-weight: 500;
 }
 
-/* body text */
-.card-desc{
+/* ---------- Card Content ---------- */
+.card-desc {
   margin-top: 12px;
   color: #dbeaf7;
-  line-height:1.6;
+  line-height: 1.6;
   font-size: 0.95rem;
 }
 
-/* actions */
-
-
-
-.btn{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:18px;
-  font-weight:600;
-  text-decoration:none;
-  cursor:pointer;
-  border: none;
-}
-
-.cert-btn{
-  background: linear-gradient(90deg, rgba(138,92,255,0.95), rgba(0,180,216,0.95));
-  color: #051021;
-  box-shadow: 0 6px 20px rgba(138,92,255,0.12);
-}
-
-/* toggle */
-.toggle-btn{
-  margin-top: 12px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.05);
-  color: var(--silver);
-  padding: 8px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  display: inline-flex;
-  gap:6px;
-  align-items:center;
-  font-weight:600;
-}
-
-/* extra expanded details */
-.extra{
-  margin-top:12px;
-  padding:12px;
-  background: rgba(255,255,255,0.02);
-  border-radius: 10px;
-  color: #cfe7ff;
-  font-size: 0.92rem;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* when expanded */
-.timeline-item .card .extra.show {
-  max-height: 500px; /* enough for content */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* small screens: stack vertically */
-@media (max-width:980px){
-  .timeline::before{ left: 20px; transform:none; }
-  .spoke{ left: 20px; transform:none; }
-  .timeline-item{ flex-direction: column; align-items:flex-start; padding-left: 48px; }
-  .timeline-item .card{ width: 100%; margin: 8px 0 0 0; }
-  .card-date{ left: 20px; top: -26px; right:auto; }
-  .timeline-item.right .card-date { left:20px; right:auto; }
-}
-
-/* animation */
-@keyframes cardIn{
-  to { opacity:1; transform: translateY(0); }
-}
-
-/* ---------- DATE FIXED POSITION ---------- */
-.card-date {
-  position: absolute;
-  top: 50%;
-  padding: 8px 16px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.05);
-  background: rgba(10,15,36,0.85);
-  color: var(--silver);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  white-space: nowrap;
-  min-width: max-content;
-  text-align: center;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
-}
-
-/* Left card date: opposite side (right of timeline) */
-.timeline-item.left .card-date {
-  left: calc(50% + 60px);
-  transform: translateY(-50%);
-}
-
-/* Right card date: opposite side (left of timeline) */
-.timeline-item.right .card-date {
-  left: calc(50% - 60px);
-  transform: translateX(-100%) translateY(-50%);
-}
-
-/* hover / touch effect with silver zoom/glow */
-.card-date {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(138,92,255,0.15);
-}
-
-
-
-
-
-/* Add hover animation for achievement cards like about image */
-.card {
-  width: 46%;
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 20px 22px;
-  border: 1px solid rgba(192,192,192,0.06);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  position: relative;
-  z-index: 3;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: cardIn 0.6s ease forwards;
-  /* NEW: Hover animation */
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-/* Hover effect */
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(0, 180, 216, 0.8);
-  z-index: 5; /* bring card above timeline line */
-}
-
-/* Touch devices: subtle effect */
-@media (hover: none) {
-  .card:active {
-    transform: scale(1.03);
-    box-shadow: 0 0 30px rgba(0, 180, 216, 0.6);
-  }
-}
-
-
-
-.achievements-section {
-  padding: 120px 5% 100px; /* top, right/left, bottom */
-}
-
-
-
+/* ---------- Card Actions ---------- */
 .card-actions {
   margin-top: 14px;
   text-align: left;
 }
 
-/* Gradient button only */
 .cert-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -325,17 +194,317 @@
   box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
 }
 
+/* ---------- Toggle Button ---------- */
+.toggle-btn {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--silver);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* ---------- Extra Content ---------- */
+.extra {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  color: #cfe7ff;
+  font-size: 0.92rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.timeline-item .card .extra.show {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Date Bubble ---------- */
+.card-date {
+  position: absolute;
+  top: 50%;
+  padding: 8px 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 15, 36, 0.85);
+  color: var(--silver);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  min-width: max-content;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.timeline-item.left .card-date {
+  left: calc(50% + 60px);
+}
+
+.timeline-item.right .card-date {
+  left: calc(50% - 60px);
+  transform: translateX(-100%) translateY(-50%);
+}
+
+/* ---------- Animations ---------- */
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive Design ---------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .achievements-section {
+    padding-top: 180px; /* more space for navbar */
+  }
+
+  .achieve-heading {
+    font-size: 1.8rem;
+  }
+
+  .timeline::before {
+    left: 30px;
+    transform: none;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 70px;
+  }
+
+  .spoke {
+    left: 30px;
+    transform: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline-item .card {
+    width: 100%;
+    margin: 15px 0 0 0;
+  }
+
+  .card-date {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .achievements-section {
+    padding-top: 200px;
+  }
+
+  .achieve-heading {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+
+  .timeline::before {
+    display: none; /* hide vertical line for simplicity */
+  }
+
+  .timeline-item {
+    padding-left: 0;
+  }
+
+  .spoke {
+    display: none; /* hide circles on mobile */
+  }
+
+  .card {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-role,
+  .card-desc {
+    font-size: 0.9rem;
+  }
+
+  .cert-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+}
 
 
 
 
 
+/* ---------- Mobile View Fixes ---------- */
+@media (max-width: 768px) {
+  /* Push content further below navbar */
+  .about-container {
+    padding-top: 150px; /* Increased top padding for small screens */
+  }
+
+  /* Stack image & text neatly */
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  /* Center and resize image properly */
+  .about-image {
+    width: 260px;
+    height: 260px;
+    margin-bottom: 20px;
+  }
+
+  /* Text alignment & spacing fix */
+  .about-right {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Buttons aligned center */
+  .about-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+
+
+
+/* Mobile alignment fix for Achievements section */
+@media (max-width: 768px) {
+  .achievements-container,
+  .timeline-container,
+  .achievements-content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .achievement-card,
+  .timeline-card {
+    width: 90% !important;
+    margin: 15px auto !important;
+    align-self: center;
+  }
+
+  /* Optional: Adjust card spacing */
+  .achievement-card:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  /* Fix heading spacing under navbar */
+  .achievements-container {
+    padding-top: 140px !important;
+  }
+}
 
 
 
 
 
+/* ---------- Strong mobile stack + alignment fix ---------- */
+/* Use a breakpoint that matches your device testing (412px shown in screenshot) */
+@media (max-width: 600px) {
+  /* hide the center line and the circle spokes for simplicity */
+  .timeline::before { display: none !important; }
+  .spoke { display: none !important; }
 
+  /* Make each timeline item a full-width stacked block */
+  .timeline-item {
+    display: block !important;
+    width: 100% !important;
+    margin: 18px 0 !important;
+    padding-left: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
 
+  /* Ensure left/right float rules are neutralized */
+  .timeline-item.left,
+  .timeline-item.right {
+    display: block !important;
+    justify-content: flex-start !important;
+  }
 
+  /* Make card full width and centered */
+  .timeline-item .card,
+  .timeline-item.left .card,
+  .timeline-item.right .card {
+    width: 100% !important;
+    margin: 8px 0 !important;
+    box-sizing: border-box !important;
+    text-align: left !important; /* or center if you prefer */
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
 
+  /* Reset the card-date bubble to flow with card (no absolute positioning) */
+  .card-date,
+  .timeline-item.left .card-date,
+  .timeline-item.right .card-date {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 8px 0 !important;
+    display: inline-block !important;
+    white-space: normal !important;
+  }
+
+  /* Reduce sizes a little for readability on narrow phones */
+  .card { padding: 16px !important; }
+  .card-title { font-size: 1rem !important; }
+  .card-desc { font-size: 0.9rem !important; line-height: 1.5 !important; }
+
+  /* keep spacing between cards */
+  .timeline-item + .timeline-item { margin-top: 20px !important; }
+
+  /* Ensure section padding doesn't get hidden under navbar */
+  @media (max-width: 600px) {
+  .achievements-section {
+    padding-top: 120px !important; /* 👈 reduce this value */
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+  }
+}
+
+}

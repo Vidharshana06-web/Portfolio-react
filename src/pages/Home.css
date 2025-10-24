@@ -368,3 +368,237 @@ html, body {
                 0 0 30px rgba(138, 43, 226, 0.2);
   }
 }
+
+
+
+
+
+
+/* ================== RESPONSIVE MEDIA QUERIES ================== */
+
+/* Tablets (width <= 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .hero-section {
+    flex-direction: column-reverse;
+    padding: 150px 40px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-left {
+    width: 100%;
+  }
+
+  .hero-right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .glow-name {
+    font-size: 3rem;
+  }
+
+  .typewriter {
+    font-size: 1.3rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    max-width: 90%;
+    margin: 15px auto 0;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  .profile-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .glow-circle {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* Mobile Phones (width <= 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .hero-section {
+    padding: 120px 20px;
+    gap: 20px;
+  }
+
+  .glow-name {
+    font-size: 2.5rem;
+  }
+
+  .typewriter {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .btn, .contact-btn, .explore-btn {
+    padding: 10px 18px;
+    margin-right: 0;
+    width: 80%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .profile-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-pic {
+    width: 160px;
+    height: 160px;
+  }
+
+  .glow-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-description {
+    max-width: 95%;
+  }
+}
+
+/* Small Phones (width <= 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 100px 15px;
+    gap: 15px;
+  }
+
+  .glow-name {
+    font-size: 2rem;
+  }
+
+  .typewriter {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+  }
+
+  .btn, .contact-btn, .explore-btn {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .profile-container {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .glow-circle {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+
+
+
+
+/* ======= Fix Hero Layout on Mobile ======= */
+
+/* Tablets & smaller */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column-reverse; /* text on top, image below */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px;
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-container {
+    margin: 0 auto;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .hero-right {
+    margin-bottom: 15px;
+  }
+
+  .profile-container {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .profile-pic {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .glow-circle {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .hero-right {
+    margin-bottom: 10px;
+  }
+
+  .profile-container {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .profile-pic {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .glow-circle {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}

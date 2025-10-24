@@ -199,3 +199,144 @@
 
 
 
+
+
+
+/* ================== RESPONSIVE MEDIA QUERIES ================== */
+
+/* Large Tablets & smaller (≤992px) */
+@media (max-width: 992px) {
+  .about-container {
+    padding: 100px 8% 50px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .about-left {
+    margin-bottom: 25px;
+  }
+
+  .about-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .about-right {
+    max-width: 95%;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-buttons .btn {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .about-social {
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* Mobile devices (≤768px) */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 80px 5% 40px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .about-image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  .about-buttons .btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+
+  .about-social {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .about-container {
+    padding: 60px 3% 30px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .about-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text {
+    font-size: 0.85rem;
+  }
+
+  .about-buttons .btn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+  }
+
+  .about-social {
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+
+/* ===== Fix About Section Behind Navbar on Tablets/Mobile ===== */
+
+/* Large Tablets & smaller (≤992px) */
+@media (max-width: 992px) {
+  .about-container {
+    padding-top: 160px; /* increase top padding to avoid overlap */
+  }
+}
+
+/* Mobile devices (≤768px) */
+@media (max-width: 768px) {
+  .about-container {
+    padding-top: 90px; /* more space for navbar */
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .about-container {
+    padding-top: 90px; /* enough space to clear fixed navbar */
+  }
+}

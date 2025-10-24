@@ -19,7 +19,19 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Two-column layout */
+/* Heading */
+.courses-participation-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #8a2be2, #00b4d8, #d49fb9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 15px rgba(138, 92, 255, 0.4);
+}
+
+/* Layout Columns */
 .courses-participation-section .columns {
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +41,7 @@
 
 .courses-participation-section .column {
   flex: 1;
-  min-width: 340px;
+  min-width: 320px;
   max-width: 600px;
   background: var(--card-bg);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -43,51 +55,12 @@
   box-shadow: 0 0 45px var(--glow);
 }
 
-/* Titles */
-.courses-participation-section .section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #8a2be2, #00b4d8, #d49fb9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin-bottom: 2rem;
-  text-shadow: 0 0 15px rgba(138, 92, 255, 0.4);
-}
-
 /* Cards Grid */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Cards Grid - Force 2 per row on desktop */
 .courses-participation-section .card-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Always 2 cards per row */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  justify-items: center; /* Center single card in last row */
-}
-
-/* Responsive for tablets */
-@media (max-width: 900px) {
-  .courses-participation-section .card-container {
-    grid-template-columns: 1fr; /* Single column on smaller screens */
-  }
-}
-
-/* Keep cards centered in column */
-.courses-participation-section .card {
-  width: 100%;
-  max-width: 280px; /* Optional: constrain max width for better visuals */
+  justify-items: center;
 }
 
 /* Card Design */
@@ -100,6 +73,8 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s;
   text-align: center;
+  max-width: 320px;
+  width: 100%;
 }
 
 .courses-participation-section .card:hover {
@@ -136,36 +111,6 @@
 .courses-participation-section .card-content p {
   font-size: 0.95rem;
   color: #b8c6d9;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .courses-participation-section .columns {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .courses-participation-section .column {
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .courses-participation-section {
-    padding: 3rem 1rem;
-  }
-
-  .courses-participation-section .section-title {
-    font-size: 1.7rem;
-  }
-
-  .courses-participation-section .card-content h3 {
-    font-size: 1.05rem;
-  }
-
-  .courses-participation-section .card-content p {
-    font-size: 0.85rem;
-  }
 }
 
 /* Modal Overlay */
@@ -229,32 +174,29 @@
 /* Skills / Tags */
 .courses-participation-section .skills {
   display: flex;
-  
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
 
-/* Skills / Tags - Filled Color */
 .courses-participation-section .tag {
-  background: linear-gradient(135deg, #00b4d8); /* Filled gradient */
-  color: #0d0b0b; /* White text for contrast */
-  border: none; /* Remove border */
+  background: linear-gradient(135deg, #00b4d8, #8a2be2);
+  color: #0d0b0b;
+  border: none;
   border-radius: 20px;
   padding: 6px 12px;
   font-size: 0.85rem;
   font-weight: 500;
-  box-shadow: 0 4px 15px rgba(138, 92, 255, 0.4); /* Subtle glow */
+  box-shadow: 0 4px 15px rgba(138, 92, 255, 0.4);
   transition: transform 0.2s, box-shadow 0.3s;
   cursor: default;
 }
 
 .courses-participation-section .tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(138, 92, 255, 0.6); /* Slightly stronger glow on hover */
+  box-shadow: 0 6px 20px rgba(138, 92, 255, 0.6);
 }
-
 
 /* View Certificate Button */
 .courses-participation-section .view-btn {
@@ -311,5 +253,81 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 🌐 RESPONSIVE DESIGN FIXES */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .courses-participation-section {
+    padding: 3.5rem 4%;
+  }
+
+  .courses-participation-section .section-title {
+    font-size: 1.8rem;
+  }
+
+  .courses-participation-section .column {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .courses-participation-section {
+    padding: 3rem 1rem;
+    margin-top: 60px;
+  }
+
+  .courses-participation-section .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .courses-participation-section .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-participation-section .card {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .courses-participation-section .modal {
+    padding: 1.5rem;
+  }
+
+  .courses-participation-section .modal h3 {
+    font-size: 1.3rem;
+  }
+
+  .courses-participation-section .modal .desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .courses-participation-section {
+    padding-top: 120px; /* prevent overlap with fixed navbar */
+  }
+
+  .courses-participation-section .section-title {
+    font-size: 1.4rem;
+  }
+
+  .courses-participation-section .card-content h3 {
+    font-size: 1rem;
+  }
+
+  .courses-participation-section .card-content p {
+    font-size: 0.85rem;
+  }
+
+  .courses-participation-section .view-btn {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.85rem;
   }
 }

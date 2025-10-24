@@ -1,6 +1,17 @@
+:root {
+  --bg: #0a0f24;
+  --text: #fff;
+  --accent: #8a2be2;
+  --pink: #d49fb9;
+  --blue: #1e90ff;
+}
+
+/* ===============================
+   CONTACT SECTION BASE STYLES
+================================= */
 .contact-section {
-  background: #0a0f24;
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
   padding: 100px 60px;
   display: flex;
   justify-content: center;
@@ -18,14 +29,17 @@
   max-width: 1200px;
 }
 
-/* LEFT SIDE */
+/* ===============================
+   LEFT SIDE (IMAGE / VIDEO)
+================================= */
 .contact-left {
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-.contact-image {
+.contact-image,
+.contact-video {
   width: 100%;
   max-width: 480px;
   border-radius: 20px;
@@ -33,7 +47,9 @@
   object-fit: cover;
 }
 
-/* RIGHT SIDE */
+/* ===============================
+   RIGHT SIDE (FORM)
+================================= */
 .contact-right {
   flex: 1;
   display: flex;
@@ -43,16 +59,11 @@
 
 .contact-heading {
   font-size: 2.4rem;
-  background: linear-gradient(45deg, #8a2be2, #d49fb9, #1e90ff);
+  background: linear-gradient(45deg, var(--accent), var(--pink), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
-
-/* ✅ FIX TYPEWRITER TEXT */
-
-
-
 
 .contact-subtext {
   font-size: 1rem;
@@ -68,7 +79,7 @@
 
 .contact-form label {
   font-size: 0.95rem;
-  color: #d49fb9;
+  color: var(--pink);
   margin-bottom: 4px;
   font-weight: 500;
 }
@@ -87,12 +98,13 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #8a2be2;
+  border-color: var(--accent);
   box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
 }
 
+/* BUTTON */
 .send-btn {
-  background: linear-gradient(45deg, #8a2be2, #d49fb9, #1e90ff);
+  background: linear-gradient(45deg, var(--accent), var(--pink), var(--blue));
   color: #fff;
   border: none;
   padding: 12px;
@@ -113,39 +125,26 @@
   margin-top: 10px;
   font-size: 0.95rem;
   text-align: center;
-  color: #d49fb9;
+  color: var(--pink);
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .contact-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contact-left, .contact-right {
-    flex: unset;
-  }
-
-  .contact-image {
-    max-width: 400px;
-  }
-}
-/* ✨ Infinite Typewriter Effect */
+/* ===============================
+   TYPEWRITER ANIMATION
+================================= */
 .typewriter-text {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid #d49fb9;
+  border-right: 3px solid var(--pink);
   font-size: 2rem;
   font-weight: 600;
   color: #fff;
-  text-shadow: 0 0 10px #8a2be2;
+  text-shadow: 0 0 10px var(--accent);
   width: 0;
-  animation: typingLoop 5s steps(35, end) infinite, blinkCursor 0.7s step-end infinite;
+  animation: typingLoop 5s steps(35, end) infinite,
+    blinkCursor 0.7s step-end infinite;
 }
 
-/* Smooth typing + erasing animation */
 @keyframes typingLoop {
   0% {
     width: 0;
@@ -167,11 +166,79 @@
   }
 }
 
+/* ===============================
+   RESPONSIVE DESIGN
+================================= */
 
-.contact-video {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
-  object-fit: cover;
+/* Tablets */
+@media (max-width: 992px) {
+  .contact-section {
+    padding: 80px 40px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: unset;
+    width: 100%;
+  }
+
+  .contact-image,
+  .contact-video {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-heading {
+    font-size: 2rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 60px 20px;
+  }
+
+  .contact-heading {
+    font-size: 1.8rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.3rem;
+  }
+
+  .contact-subtext {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .send-btn {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .contact-image,
+  .contact-video {
+    max-width: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .contact-section {
+    padding-top: 90px !important; /* add more space only on mobile */
+  }
 }
